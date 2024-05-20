@@ -16,3 +16,18 @@
         group: sysadmin
         mode: '0644'
       become: yes
+
+
+
+student@bchd:~/mycode$ ansible fry -m setup |grep 10.10
+            "10.10.2.4"
+            "address": "10.10.2.4",
+            "broadcast": "10.10.2.255",
+            "gateway": "10.10.2.1",
+            "network": "10.10.2.0",
+            "SSH_CLIENT": "10.10.2.1 35728 22",
+            "SSH_CONNECTION": "10.10.2.1 35728 10.10.2.4 22",
+                "address": "10.10.2.4",
+                "broadcast": "10.10.2.255",
+                "network": "10.10.2.0",
+                "10.10.2.4",

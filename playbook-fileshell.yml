@@ -10,6 +10,11 @@
        path: ~/output/
        state: directory
 
-   - name: use shell module with wildcarding
-     ansible.builtin.shell: echo $HOME >> ~/output/path.txt
+
+   - name: create ~/output/path.txt file 
+     ansible.builtin.copy:
+       dest: ~/output/path.txt
+       content: "{{ ansible_env.HOME }}"
+
+
 

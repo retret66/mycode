@@ -2,7 +2,15 @@
 - name: Get-URL Download the Protected File
   hosts: localhost  # target ourselves
   connection: local # we do not want to SSH anywhere. Run these actions locally
-  gather_facts: no  # no need to gather_facts about ourselves (defines ansible_facts)
+  gather_facts: yes  # no need to gather_facts about ourselves (defines ansible_facts)
+
+
+
+  vars:
+    - user: sammy
+      password: larry
+
+
 
   tasks:
     # in this task we alert Ansible to expect a 401 response
@@ -25,8 +33,8 @@
         url: http://10.10.2.4/admin/secure.txt
         status_code: 200 # this is the default, 200 means "success" in HTTP
         return_content: yes
-        url_username: sammy  # this time include "sammy" as UN
-        url_password: larry  # this time include "larry" as PW      
+        url_username: "{{ user }}"  # this time include "sammy" as UN
+        url_password: "{{ larry }}"  # this time include "larry" as PW      
       register: validateurl  # overwrite the variable "validateurl"
 
     - name: Show that the content was still retrieved

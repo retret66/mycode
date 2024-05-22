@@ -1,0 +1,11 @@
+---
+- name: Secret playbook
+  connection: local
+  hosts: localhost
+  gather_facts: no
+
+  tasks:
+    - name: Print to the screen
+      ansible.builtin.debug:
+        msg: "This is your secret playbook. You and you alone must retain control of it. Your mission, Jim, should you choose to accept it. Is to first encrypt, then run this playbook (while it is encrypted). This message will self-destruct in 5 seconds."
+

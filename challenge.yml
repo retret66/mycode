@@ -1,0 +1,9 @@
+---
+- name: New roles training
+  hosts: fry
+  gather_facts: yes
+  become: true
+
+  roles:
+    - challenge
+
